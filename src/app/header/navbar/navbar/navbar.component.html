@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <span>Blog</span>
+  <span class="example-spacer"></span>
+  <button color="primary" mat-icon-button class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon">
+    Home
+  </button>
+  <button color="primary" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    My Blogs
+  </button>
+  <div mat-card-avatar [matMenuTriggerFor]="menu">
+    <img [src]="avatar" class="example-header-image rounded-full">
+  </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Account</button>
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-toolbar>
+My App
