@@ -42,6 +42,7 @@ import {MaterialExampleModule} from "./meterial.module";
     MatNativeDateModule,
     ReactiveFormsModule,
     MaterialExampleModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

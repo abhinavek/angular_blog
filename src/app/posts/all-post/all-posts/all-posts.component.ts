@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import Post from "../../../../std/classes/Post";
 import {User, UserInterface} from "../../../../std/classes/User";
+import {PostsService} from "../../../../services/posts.service";
+import {data} from "autoprefixer";
 
 @Component({
   selector: 'app-all-posts',
@@ -8,28 +10,14 @@ import {User, UserInterface} from "../../../../std/classes/User";
   styleUrls: ['./all-posts.component.scss']
 })
 export class AllPostsComponent {
-  samplePost : Post[] = [{
-    id:1,
-    content:'sample content',
-    image:'sample.jpg',
-    title:'Sample Post',
-    authorId:1
-  },
-    {
-      id:1,
-      content:'sample content',
-      image:'sample.jpg',
-      title:'Sample Post',
-      authorId:1
-    },
-    {
-      id:1,
-      content:'sample content',
-      image:'sample.jpg',
-      title:'Sample Post',
-      authorId:1
-    }]
-
+  samplePost : Post[] = []
+  constructor(private postService:PostsService) {
+  }
+  ngOnInit():void {
+    this.postService.getPosts().subscribe(data=>{
+      this.samplePost = data
+    })
+  }
   sampleUser : UserInterface = {
     id:0,
     avatar:'./assets/icons/avatar.png',

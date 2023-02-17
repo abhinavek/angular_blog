@@ -1,7 +1,4 @@
 <div class="posts-view">
-  <app-post [post]="samplePost" [user]="sampleUser"></app-post>
-  <app-post [post]="samplePost" [user]="sampleUser"></app-post>
-  <app-post [post]="samplePost" [user]="sampleUser"></app-post>
-  <app-post [post]="samplePost" [user]="sampleUser"></app-post>
+  <app-post *ngFor="let postObj of samplePost" [post]="postObj" [user]="sampleUser"></app-post>
 </div>
 
