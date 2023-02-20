@@ -2,7 +2,16 @@
   flex: 1 1 auto;
 }
 .example-header-image {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: auto;
   background-size: cover;
+}
+.example-icon {
+  margin: 10px;
+}
+
+.account-image {
+  display: flex;
+  justify-content: center;
+  align-items: last baseline;
 }

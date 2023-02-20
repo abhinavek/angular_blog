@@ -1,9 +1,9 @@
 interface Post {
-    id:number | 0
+    id?:number
     title: string | ''
     content:string | ''
     image: string | ''
-    authorId:number | 0
+    authorId:number | 0 | undefined
   }
 
 export default Post

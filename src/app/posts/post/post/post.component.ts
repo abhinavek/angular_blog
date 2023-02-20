@@ -14,7 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  styleUrls: ['./post.component.scss'],
 })
 export class PostComponent {
   @Input() post !:Post ;

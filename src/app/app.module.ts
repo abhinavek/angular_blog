@@ -17,7 +17,11 @@ import {MatCardModule} from '@angular/material/card';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {HttpClientModule} from '@angular/common/http';
-import {MaterialExampleModule} from "./meterial.module";
+import { NotFoundComponent } from './not-found/not-found/not-found.component';
+import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-field";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ViewPostComponent } from './posts/view-post/view-post.component';
 
 
 @NgModule({
@@ -26,7 +30,9 @@ import {MaterialExampleModule} from "./meterial.module";
     PostCreateComponent,
     NavbarComponent,
     PostComponent,
-    AllPostsComponent
+    AllPostsComponent,
+    NotFoundComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,9 @@ import {MaterialExampleModule} from "./meterial.module";
     HttpClientModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MaterialExampleModule,
+    MatFormFieldModule,
+    FlexLayoutModule,
+    MatSnackBarModule,
     AppRoutingModule,
   ],
   providers: [],

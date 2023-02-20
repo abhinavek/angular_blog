@@ -1,12 +1,12 @@
 <div>
   <p>
     <mat-form-field  appearance="outline" color="primary">
-      <input matInput placeholder="Title">
+      <input matInput placeholder="Title"  [(ngModel)]="title">
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="outline" color="primary">
-      <textarea placeholder="Content"></textarea>
+      <textarea placeholder="Content" [ngModel]="content"></textarea>
     </mat-form-field>
   </p>
   <p>
@@ -14,7 +14,13 @@
       <label for="file">Choose Image</label>
       <input type="file"
              id="file"
+             (change)="selectedFile($event)"
              >
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field color="primary">
+      <a href="#" mat-button color="primary" (click)="submitPost()">Save</a>
     </mat-form-field>
   </p>
 

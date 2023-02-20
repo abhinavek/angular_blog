@@ -1,4 +1,9 @@
-<div class="posts-view">
-  <app-post *ngFor="let postObj of samplePost" [post]="postObj" [user]="sampleUser"></app-post>
-</div>
+<!--&lt;!&ndash;<div class="posts-view">&ndash;&gt;-->
+<!--&lt;!&ndash;  <app-post *ngFor="let postObj of samplePost" [post]="postObj" [user]="sampleUser"></app-post>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
 
+<div fxLayout="row" fxLayoutAlign="space-around" class="posts-view">
+  <app-post *ngFor="let postObj of samplePost" [post]="postObj" [user]="sampleUser"  fxFlex.lg="33" fxFlex.lt-lg="50" fxFlex.xs="100"></app-post>
+<!--  <md-card *ngFor="let post of posts" fxFlex.lg="33" fxFlex.lt-lg="50" fxFlex.xs="100">-->
+<!--  </md-card>-->
+</div>

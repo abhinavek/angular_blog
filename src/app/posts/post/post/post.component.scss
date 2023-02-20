@@ -14,8 +14,7 @@ img.mat-card-avatar {
 }
 .post-card {
   background-color: aliceblue;
-  width: 300px;
-  justify-content: space-between;
+  margin: 50px;
 }
 .mat-card-subtitle {
   color: darkgray;
@@ -25,4 +24,6 @@ img.mat-card-avatar {
     color: black;
   }
 }
-
+.content-text {
+  text-align: justify;
+}
