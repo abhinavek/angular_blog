@@ -17,6 +17,6 @@ export class ViewPostComponent implements OnInit{
     });
   }
   ngOnInit(){
-    this.postService.getPostById(this.postId).subscribe(data=>this.post = data)
+    this.postService.getPostById(this.postId).subscribe(data=>this.post = data[0])
   }
 }

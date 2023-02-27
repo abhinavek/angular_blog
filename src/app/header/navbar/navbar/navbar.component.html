@@ -1,20 +1,25 @@
 <div>
   <mat-toolbar color="primary">
-    <span>Blog</span>
-    <span class="example-spacer"></span>
-    <button color="primary" class="example-icon favorite-icon"
-            aria-label="Example icon-button with heart icon" routerLink="/home">
-      Home
-    </button>
-    <button color="primary" class="example-icon" aria-label="Example icon-button with share icon" routerLink="/create">
-      Create
-    </button>
-    <div mat-card-avatar [matMenuTriggerFor]="menu" class="account-image">
-      <img [src]="avatar" class="example-header-image rounded-full">
+    <span><button color="primary" class="example-icon favorite-icon"
+                  aria-label="Example icon-button with heart icon" routerLink="/home">
+      Blog
+    </button></span>
+    <div *ngIf="user?._id !=null " class="flex items-center justify-end w-full">
+      <span class="example-spacer"></span>
+      <button color="primary" class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon" routerLink="/home">
+        Home
+      </button>
+      <button color="primary" class="example-icon" aria-label="Example icon-button with share icon" routerLink="/create">
+        Create
+      </button>
+      <div mat-card-avatar [matMenuTriggerFor]="menu" class="account-image">
+        <img [src]="avatar" class="example-header-image rounded-full">
+      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Account</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
     </div>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Account</button>
-      <button mat-menu-item>Logout</button>
-    </mat-menu>
   </mat-toolbar>
 </div>

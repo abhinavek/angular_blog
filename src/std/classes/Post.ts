@@ -1,9 +1,14 @@
 interface Post {
+    _id?:string | ''
     id?:number
     title: string | ''
     content:string | ''
     image: string | ''
-    authorId:number | 0 | undefined
+    author_id:string,
+    author_first_name?:string,
+    author_last_name?:string,
+    author_avatar?:string,
+
   }
 
 export default Post

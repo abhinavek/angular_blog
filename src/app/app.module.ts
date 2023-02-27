@@ -16,12 +16,15 @@ import {MatCardModule} from '@angular/material/card';
 
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './not-found/not-found/not-found.component';
 import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-field";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { ViewPostComponent } from './posts/view-post/view-post.component';
+import { LoginComponent } from './login/login.component';
+import {BaseUrlInterceptor} from "../interceptors/base-url.interceptor";
+import {FileValidationDirective} from "../directives/file-validation.directive";
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { ViewPostComponent } from './posts/view-post/view-post.component';
     PostComponent,
     AllPostsComponent,
     NotFoundComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    LoginComponent,
+    FileValidationDirective
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,14 @@ import { ViewPostComponent } from './posts/view-post/view-post.component';
     MatSnackBarModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: BaseUrlInterceptor,
+    multi: true
+  },
+    {
+      provide: "BASE_API_URL", useValue: 'http://localhost:3000/'
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

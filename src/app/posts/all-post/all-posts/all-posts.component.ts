@@ -18,10 +18,5 @@ export class AllPostsComponent {
       this.samplePost = data
     })
   }
-  sampleUser : UserInterface = {
-    id:0,
-    avatar:'./assets/icons/avatar.png',
-    first_name:'Abhinav',
-    last_name:'E K'
-  }
+
 }

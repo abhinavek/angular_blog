@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import Post from "../std/classes/Post";
 import {HttpClient} from "@angular/common/http";
-import {data} from "autoprefixer";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -31,18 +30,22 @@ export class PostsService {
   //     authorId:1
   //   }]
 
-  base_url:string = 'http://localhost:3000/'
+
   constructor(private http: HttpClient) { }
 
   getPosts = () => {
     // return this.posts
-    return this.http.get<Post[]>(this.base_url+'posts')
+    return this.http.get<Post[]>('posts')
   }
   savePost = (post:Post): Observable<any> => {
-    return this.http.post(this.base_url + 'posts', post)
+    return this.http.post( 'posts', post)
   }
   getPostById = (id: string | null):Observable<any> => {
-    return this.http.get(this.base_url+'posts/'+id)
+    return this.http.get('posts/'+id)
   }
-
+  uploadImage = (image: File):Observable<any> => {
+    const formData = new FormData()
+    formData.append('file',image,image.name)
+    return this.http.post('posts/upload/',formData)
+  }
 }
