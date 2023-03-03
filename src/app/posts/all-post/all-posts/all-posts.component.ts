@@ -14,6 +14,7 @@ export class AllPostsComponent {
   constructor(private postService:PostsService) {
   }
   ngOnInit():void {
+    this.postService.getUpdatedPosts()
     this.postService.getPosts().subscribe(data=>{
       this.samplePost = data
     })

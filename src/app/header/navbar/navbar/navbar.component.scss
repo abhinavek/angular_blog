@@ -14,4 +14,8 @@
   display: flex;
   justify-content: center;
   align-items: last baseline;
+  margin-bottom: 0;
+  .account-image-img {
+    object-fit: cover;
+  }
 }

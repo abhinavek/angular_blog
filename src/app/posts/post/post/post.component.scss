@@ -14,7 +14,16 @@ img.mat-card-avatar {
 }
 .post-card {
   background-color: aliceblue;
-  margin: 50px;
+  margin: 20px;
+}
+.mat-mdc-card-header-text {
+  width: 90% !important;
+  overflow: auto !important;
+}
+.card-menu {
+  position: absolute;
+  right: 5px;
+  top: 20px;
 }
 .mat-card-subtitle {
   color: darkgray;
@@ -27,3 +36,16 @@ img.mat-card-avatar {
 .content-text {
   text-align: justify;
 }
+.post-image {
+  display: block;
+  height: 250px;
+  object-fit: cover ;
+}
+
+@media only screen and (max-width <= 600px) {
+  .post-image {
+    height: auto;
+    object-fit: cover;
+  }
+}
+

@@ -8,7 +8,7 @@ interface Post {
     author_first_name?:string,
     author_last_name?:string,
     author_avatar?:string,
-
+    date?:string
   }
 
 export default Post

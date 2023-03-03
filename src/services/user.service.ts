@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http:HttpClient) {
   }
   userChange = () => {
-    if(JSON.parse(<string>localStorage.getItem('user'))?._id !== '')
+    if(JSON.parse(<string>localStorage.getItem('user'))?._id !== '0')
        this.loggedInUser.next(
          JSON.parse(<string>localStorage.getItem('user'))
        )

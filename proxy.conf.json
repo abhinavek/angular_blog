@@ -1,10 +1,13 @@
 {
-  "/posts": {
-    "target": "http://localhost:3000",
-    "secure": false
+  "/posts/": {
+    "target": "http://localhost:3000/posts",
+    "secure": false,
+    "changeOrigin": false
   },
-  "/users": {
-    "target": "http://localhost:3000",
-    "secure": false
+
+  "/users/": {
+    "target": "http://localhost:3000/users",
+    "secure": false,
+    "changeOrigin": false
   }
 }

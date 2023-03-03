@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {User} from "../../../../std/classes/User";
 import {UserService} from "../../../../services/user.service";
@@ -9,9 +9,12 @@ import {data} from "autoprefixer";
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   avatar:string= ''
   user!:User
+  ngOnInit() {
+    this.userService.userChange()
+  }
 
   constructor(private userService:UserService,private router: Router) {
       this.userService.loginUser().subscribe(data =>{

@@ -1,47 +1,33 @@
 import { Injectable } from '@angular/core';
 import Post from "../std/classes/Post";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable, shareReplay} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
-
-  // posts:Post[] = [{
-  //   id:1,
-  //   content:'sample content',
-  //   image:'sample.jpg',
-  //   title:'Sample Post',
-  //   authorId:1
-  // },
-  //   {
-  //     id:1,
-  //     content:'sample content',
-  //     image:'sample.jpg',
-  //     title:'Sample Post',
-  //     authorId:1
-  //   },
-  //   {
-  //     id:1,
-  //     content:'sample content',
-  //     image:'sample.jpg',
-  //     title:'Sample Post',
-  //     authorId:1
-  //   }]
-
-
+  posts = new BehaviorSubject({})
   constructor(private http: HttpClient) { }
-
-  getPosts = () => {
+  getPosts  = ():Observable<any> => {
     // return this.posts
-    return this.http.get<Post[]>('posts')
+    return this.posts.pipe(shareReplay())
+  }
+  getUpdatedPosts  = () => {
+    // return this.posts
+    this.http.get('posts/').subscribe(data=>this.posts.next(data))
   }
   savePost = (post:Post): Observable<any> => {
-    return this.http.post( 'posts', post)
+    return this.http.post( 'posts/', post)
+  }
+  updatePost = (post:Post): Observable<any> => {
+    return this.http.put( 'posts/update', post)
   }
   getPostById = (id: string | null):Observable<any> => {
     return this.http.get('posts/'+id)
+  }
+  deletePost = (id:string):Observable<any> => {
+    return this.http.delete('posts/',{body:{_id:id}})
   }
   uploadImage = (image: File):Observable<any> => {
     const formData = new FormData()

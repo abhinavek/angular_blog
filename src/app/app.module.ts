@@ -10,7 +10,7 @@ import { NavbarComponent } from './header/navbar/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
-import { PostComponent } from './posts/post/post/post.component';
+import {PostComponent} from './posts/post/post/post.component';
 import { AllPostsComponent } from './posts/all-post/all-posts/all-posts.component';
 import {MatCardModule} from '@angular/material/card';
 
@@ -25,6 +25,11 @@ import { ViewPostComponent } from './posts/view-post/view-post.component';
 import { LoginComponent } from './login/login.component';
 import {BaseUrlInterceptor} from "../interceptors/base-url.interceptor";
 import {FileValidationDirective} from "../directives/file-validation.directive";
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { PostDeleteComponent } from './posts/post-delete/post-delete.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { GridViewComponent } from './posts/grid-view/grid-view.component';
+import { TestComponent } from './posts/test/test.component';
 
 
 @NgModule({
@@ -37,7 +42,11 @@ import {FileValidationDirective} from "../directives/file-validation.directive";
     NotFoundComponent,
     ViewPostComponent,
     LoginComponent,
-    FileValidationDirective
+    FileValidationDirective,
+    EditPostComponent,
+    PostDeleteComponent,
+    GridViewComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +65,7 @@ import {FileValidationDirective} from "../directives/file-validation.directive";
     FlexLayoutModule,
     MatSnackBarModule,
     AppRoutingModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
