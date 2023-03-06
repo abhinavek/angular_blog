@@ -3,6 +3,7 @@
 <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
 <div class="flex justify-start items-start posts-view">
+<!--  {{samplePost|json}}-->
   <app-post *ngFor="let postObj of samplePost" [post]="postObj"  fxFlex.lg="33" fxFlex.lt-lg="50" fxFlex.xs="100"></app-post>
 <!--  <md-card *ngFor="let post of posts" fxFlex.lg="33" fxFlex.lt-lg="50" fxFlex.xs="100">-->
 <!--  </md-card>-->

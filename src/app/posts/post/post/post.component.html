@@ -3,19 +3,7 @@
     <img mat-card-avatar src={{user.avatar}}>
     <mat-card-title routerLink="/view/{{post._id}}" class="card-header">{{post.title}}</mat-card-title>
     <mat-card-subtitle class="mat-card-subtitle">{{user.first_name + ' ' + user.last_name}}</mat-card-subtitle>
-    <div *ngIf="userId==post.author_id">
-      <button mat-button class="card-menu" [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <span routerLink="/edit/{{post._id}}">Edit</span>
-        </button>
-        <button mat-menu-item>
-          <span (click)="deletePost()">Delete</span>
-        </button>
-      </mat-menu>
-    </div>
+    <app-post-menu [post]="post" class="card-menu"></app-post-menu>
   </mat-card-header>
   <img class="post-image" routerLink="/view/{{post._id}}" mat-card-image src="{{post.image!==''?post.image:'https://material.angular.io/assets/img/examples/shiba2.jpg'}}" alt="{{post.title}}">
   <mat-card-content>
@@ -23,6 +11,11 @@
       {{ post.content.length > 20 ? (post.content | slice:0:50) + '...' : post.content }}
     </p>
   </mat-card-content>
+  <div *ngIf="post.tags">
+    <button *ngFor="let tag of post.tags" class="rounded-full text-white p-2 m-2 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ...">
+      {{"#"+tag}}
+    </button>
+  </div>
   <mat-card-actions class="mat-card-actions">
     <button mat-button><mat-icon aria-hidden="false" aria-label="like" fontIcon="favorite"></mat-icon></button>
     <button mat-button><mat-icon aria-hidden="false" aria-label="share" fontIcon="share"></mat-icon></button>

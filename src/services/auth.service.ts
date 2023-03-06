@@ -14,7 +14,7 @@ export class AuthService {
       this.http.post('users/login',{email:email,password:password}).subscribe(data=>{
         if(data)
         {
-          localStorage.setItem('user',JSON.stringify((data as Array<object>)[0]))
+          localStorage.setItem('user',JSON.stringify((data as Array<object>)))
           this.userService.userChange()
           ob.next({status:"success"})
         }

@@ -20,11 +20,6 @@ img.mat-card-avatar {
   width: 90% !important;
   overflow: auto !important;
 }
-.card-menu {
-  position: absolute;
-  right: 5px;
-  top: 20px;
-}
 .mat-card-subtitle {
   color: darkgray;
 }
@@ -41,6 +36,14 @@ img.mat-card-avatar {
   height: 250px;
   object-fit: cover ;
 }
+
+.card-menu {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 20px;
+}
+
 
 @media only screen and (max-width <= 600px) {
   .post-image {

@@ -1,0 +1,13 @@
+<div *ngIf="userId == post.author_id">
+  <button mat-button  [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span routerLink="/edit/{{post._id}}">Edit</span>
+    </button>
+    <button mat-menu-item>
+      <span (click)="deletePost()">Delete</span>
+    </button>
+  </mat-menu>
+</div>

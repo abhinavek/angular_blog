@@ -30,11 +30,16 @@ import { PostDeleteComponent } from './posts/post-delete/post-delete.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { GridViewComponent } from './posts/grid-view/grid-view.component';
 import { TestComponent } from './posts/test/test.component';
+import {AuthInterceptor} from "../interceptors/auth.interceptor";
+import { PostMenuComponent } from './components/post-menu/post-menu.component';
+import { TagsComponent } from './components/tags/tags.component';
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    PostComponent,
     PostCreateComponent,
     NavbarComponent,
     PostComponent,
@@ -46,7 +51,9 @@ import { TestComponent } from './posts/test/test.component';
     EditPostComponent,
     PostDeleteComponent,
     GridViewComponent,
-    TestComponent
+    TestComponent,
+    PostMenuComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,16 +72,24 @@ import { TestComponent } from './posts/test/test.component';
     FlexLayoutModule,
     MatSnackBarModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: BaseUrlInterceptor,
-    multi: true
-  },
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseUrlInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     {
       provide: "BASE_API_URL", useValue: 'http://localhost:3000/'
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

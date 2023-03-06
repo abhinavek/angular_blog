@@ -7,6 +7,7 @@ import {PostsService} from "../../../../services/posts.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {NgForm} from '@angular/forms'
 import {data} from "autoprefixer";
+import {Tag} from "../../../../std/classes/Tag";
 
 @Component({
   selector: 'app-post-create',
@@ -21,6 +22,7 @@ export class PostCreateComponent {
   userId: string = ''
   file!: File
   file1!: string
+  tags:Tag[]=[]
   constructor(
     private userService:UserService,
     private postService:PostsService,
@@ -42,7 +44,8 @@ export class PostCreateComponent {
         title:this.title,
         content:this.content,
         image:data.link,
-        author_id:this.userId
+        author_id:this.userId,
+        tags:this.tags
       }
       this.postService.savePost(postObj).subscribe(data=>{
         if(data.acknowledged)
@@ -52,5 +55,9 @@ export class PostCreateComponent {
         }
       })
     })
+  }
+
+  getTags = (tags:Tag[]) => {
+    this.tags = tags
   }
 }

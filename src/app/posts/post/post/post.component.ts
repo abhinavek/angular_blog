@@ -23,9 +23,7 @@ import {PostDeleteComponent} from "../../post-delete/post-delete.component";
 export class PostComponent implements OnInit{
   @Input() post !: Post ;
   @Input() user !: UserInterface
-  constructor(private userService:UserService, public dialog: MatDialog) {
-  }
-  userId:string=''
+
   deleted:boolean=false
   ngOnInit(): void {
     this.user = {
@@ -34,16 +32,5 @@ export class PostComponent implements OnInit{
       last_name: this.post?.author_last_name,
       avatar: this.post?.author_avatar
     }
-    this.userService.loginUser().subscribe(data=>this.userId = data?._id)
-  }
-  deletePost = () => {
-    this.dialog.open(PostDeleteComponent, {
-      data:{
-        id:this.post._id,
-      }
-    });
-  }
-  hideDialog = () => {
-    this.dialog.closeAll()
   }
 }
